@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap');
+
+:root{
+    --main_font : 'Barlow Condensed', sans-serif;
+    --main_color : #000;
+    --second_color : #fff;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper{
+    max-width: 70%;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 2em auto;
+    outline: .1em solid black;
+    height: 80vh;
+    align-items: space-around;
+    
+}
+
+.wrapper > * {
+    margin: 1em 0;
+}
+
+.wrapper > h1{
+    text-align: center;
+    font-family: var(--main_font);
+}
+
+.wrapper > nav{
+    align-self: center;
+    
+    padding: 1em;
+    font-size: 1.2em;
+}
+
+.wrapper > nav > a{
+    text-decoration: none;
+    color : var(--main_color);
+    margin: 0 .3em;
+}
+
+main{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    flex:3;
+    
+}
+
+main > section{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    
+}
+
+main > section > article{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.tipo-moneda{
+    max-width: 100px;
+    cursor: pointer;
+
+}
+
+
+.tipo-moneda:hover{
+    transform: scale(1.1);
+}
+
+.tipo-moneda:active, .seleccionada{
+    transform: scale(1);
+    outline: .6em solid red;
+    border-radius: 50%;
+    
+}
