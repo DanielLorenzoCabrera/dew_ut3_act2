@@ -29,16 +29,11 @@ function comenzarPartida(){
     if(partida.monedaJugador === "" || partida.caraMonedaJugador === ""){
         alert("Debes seleccionar un tipo de moneda y la cara que deseas jugar");
     } else{
-        
+        lanzarMoneda();
     }
 }
 
-/*
-function haElegidoMoneda(){
-    const seleccionUsuario =  partida.monedaJugador && partida.caraMonedaJugador ? true : false;
-    return seleccionUsuario;
-}
-*/
+
 
 function elegirTipoMoneda(){
     // Si hay uno seleccionado le quitamos la clase seleccionado
@@ -61,6 +56,8 @@ function mostrarCarasMoneda(){
 }
 
 function elegirCaraMoneda(){
+    const seleccionAnterior = document.querySelector('.cara_seleccionada') ? (document.querySelector('.cara_seleccionada')).classList.toggle("cara_seleccionada") : '';
+    this.classList.toggle("cara_seleccionada");
     if(this.dataset.caraMonedaJugador === "cara"){
         partida.caraMonedaJugador = "cara";
         partida.caraMonedaOrdenador = "cruz";
@@ -70,5 +67,22 @@ function elegirCaraMoneda(){
     }
     let monedaOrdenador =  document.querySelector("#imagenOrdenador");
     monedaOrdenador.src = `./../imagenes/${partida.monedaOrdenador}_${partida.caraMonedaOrdenador}.png`
-    console.log(monedaOrdenador);
+}
+
+
+function lanzarMoneda(){
+    console.table(partida);
+    let monedaJugador = `./imagenes/${partida.monedaJugador}_${partida.caraMonedaJugador}.png`;
+    let monedaOrdenador = `./imagenes/${partida.monedaOrdenador}_${partida.caraMonedaOrdenador}.png`;
+    let ejecutarAnimacion = window.setInterval(animacion,3000,monedaJugador, monedaOrdenador);
+}
+
+function animacion(monedaJugador, monedaOrdenador){
+    let animacionImg = document.querySelector("#animacion");
+    if(animacionImg.src === monedaJugador){
+        animacionImg.src === monedaOrdenador
+    }else{
+        animacionImg.src === monedaJugador
+    }
+    //console.log(animacionImg);
 }

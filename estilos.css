@@ -71,9 +71,11 @@ main > section > article{
 
 .partida{
     justify-self: flex-end;
-    background-color: red;
+    
     margin: 2em 0;
 }
+
+
 
 .juego{
     display: flex;
@@ -100,9 +102,9 @@ main > section > article{
     transform: scale(1.1);
 }
 
-.tipo-moneda:active, .seleccionada{
+.tipo-moneda:active, .seleccionada, .cara_seleccionada{
     transform: scale(1);
-    outline: .6em solid red;
+    outline: .2em solid red;
     border-radius: 50%;
     
 }
