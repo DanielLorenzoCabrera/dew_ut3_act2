@@ -71,9 +71,12 @@ function elegirCaraMoneda(){
 
 
 function lanzarMoneda(){
-    console.table(partida);
-    
+    let animacionImg = document.querySelector("#animacion");
     let ejecutarAnimacion = window.setInterval(animacion,500);
+    setTimeout(()=> {clearInterval(ejecutarAnimacion)},3000);
+    setTimeout(darValorMoneda(animacionImg), 1000);
+    console.log(animacionImg);
+
 }
 
 function animacion(){
@@ -84,4 +87,12 @@ function animacion(){
     animacionImg.src = monedaOrdenador;
     setTimeout(()=> {animacionImg.src = monedaJugador},650);
     
+}
+
+
+function darValorMoneda(contenedorImagen){
+    let numeroAleatorio =  Math.random();
+    numeroAleatorio > 0.5 ? contenedorImagen.src = `imagenes/${partida.monedaJugador}_${partida.caraMonedaJugador}.png` : contenedorImagen.src = `imagenes/${partida.monedaOrdenador}_${partida.caraMonedaOrdenador}.png`;
+    console.log(numeroAleatorio);
+    console.log(contenedorImagen);
 }
