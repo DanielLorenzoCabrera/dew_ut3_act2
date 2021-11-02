@@ -72,17 +72,16 @@ function elegirCaraMoneda(){
 
 function lanzarMoneda(){
     console.table(partida);
-    let monedaJugador = `./imagenes/${partida.monedaJugador}_${partida.caraMonedaJugador}.png`;
-    let monedaOrdenador = `./imagenes/${partida.monedaOrdenador}_${partida.caraMonedaOrdenador}.png`;
-    let ejecutarAnimacion = window.setInterval(animacion,3000,monedaJugador, monedaOrdenador);
+    
+    let ejecutarAnimacion = window.setInterval(animacion,500);
 }
 
-function animacion(monedaJugador, monedaOrdenador){
+function animacion(){
     let animacionImg = document.querySelector("#animacion");
-    if(animacionImg.src === monedaJugador){
-        animacionImg.src === monedaOrdenador
-    }else{
-        animacionImg.src === monedaJugador
-    }
-    //console.log(animacionImg);
+    let monedaJugador = `imagenes/${partida.monedaJugador}_${partida.caraMonedaJugador}.png`;
+    let monedaOrdenador = `imagenes/${partida.monedaOrdenador}_${partida.caraMonedaOrdenador}.png`;
+
+    animacionImg.src = monedaOrdenador;
+    setTimeout(()=> {animacionImg.src = monedaJugador},650);
+    
 }
