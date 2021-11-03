@@ -72,9 +72,10 @@ function elegirCaraMoneda(){
 
 function lanzarMoneda(){
     let animacionImg = document.querySelector("#animacion");
-    let ejecutarAnimacion = window.setInterval(animacion,500);
-    setTimeout(()=> {clearInterval(ejecutarAnimacion)},3000);
-    setTimeout(darValorMoneda(animacionImg), 1000);
+    animacion();
+    //let ejecutarAnimacion = window.setInterval(animacion,500);
+    //setTimeout(()=> {clearInterval(ejecutarAnimacion)},3000);
+    //setTimeout(darValorMoneda(animacionImg), 1000);
     console.log(animacionImg);
 
 }
@@ -83,16 +84,27 @@ function animacion(){
     let animacionImg = document.querySelector("#animacion");
     let monedaJugador = `imagenes/${partida.monedaJugador}_${partida.caraMonedaJugador}.png`;
     let monedaOrdenador = `imagenes/${partida.monedaOrdenador}_${partida.caraMonedaOrdenador}.png`;
+    for(let i = 0 ; i < 6; i++){
+        //setTimeout(darValorMoneda(animacionImg),200);
+        
+    }
+
 
     animacionImg.src = monedaOrdenador;
-    setTimeout(()=> {animacionImg.src = monedaJugador},650);
     
+    
+}
+
+function cambioImagen(animacionImg, monedaJugador,monedaOrdenador){
+    if(animacionImg.src === monedaJugador){
+        animacionImg.src = monedaOrdenador;
+    }else{
+        animacionImg.src = caraMonedaJugador;
+    }
 }
 
 
 function darValorMoneda(contenedorImagen){
     let numeroAleatorio =  Math.random();
     numeroAleatorio > 0.5 ? contenedorImagen.src = `imagenes/${partida.monedaJugador}_${partida.caraMonedaJugador}.png` : contenedorImagen.src = `imagenes/${partida.monedaOrdenador}_${partida.caraMonedaOrdenador}.png`;
-    console.log(numeroAleatorio);
-    console.log(contenedorImagen);
 }
