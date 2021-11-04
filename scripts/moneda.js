@@ -6,10 +6,8 @@ const partida = {
     victoriasJugador : 0,
     victoriasOrdenador : 0,
     partidasJugadas : 0,
+    iteracionesAnimacion : 1
 }
-
-
-
 
 
 
@@ -48,6 +46,7 @@ function elegirTipoMoneda(){
 function mostrarCarasMoneda(){
     let seleccionCara =  document.querySelector(".seleccion-cara");
     let carasMoneda = seleccionCara.querySelectorAll("img");
+    
     carasMoneda[0].src = `./../imagenes/${partida.monedaJugador}_cara.png`;
     carasMoneda[0].dataset.caraMonedaJugador = `cara`;
     carasMoneda[1].src = `./../imagenes/${partida.monedaJugador}_cruz.png`;
@@ -71,40 +70,49 @@ function elegirCaraMoneda(){
 
 
 function lanzarMoneda(){
-    let animacionImg = document.querySelector("#animacion");
-    animacion();
-    //let ejecutarAnimacion = window.setInterval(animacion,500);
-    //setTimeout(()=> {clearInterval(ejecutarAnimacion)},3000);
-    //setTimeout(darValorMoneda(animacionImg), 1000);
-    console.log(animacionImg);
-
-}
-
-function animacion(){
+    
     let animacionImg = document.querySelector("#animacion");
     let monedaJugador = `imagenes/${partida.monedaJugador}_${partida.caraMonedaJugador}.png`;
     let monedaOrdenador = `imagenes/${partida.monedaOrdenador}_${partida.caraMonedaOrdenador}.png`;
-    for(let i = 0 ; i < 6; i++){
-        //setTimeout(darValorMoneda(animacionImg),200);
-        
-    }
-
-
-    animacionImg.src = monedaOrdenador;
+    let idAnimacion =  setInterval(animacionMoneda,300,animacionImg, monedaJugador, monedaOrdenador);
+    setTimeout(pararAnimacion,2000,idAnimacion,animacionImg, monedaJugador);
+   
     
-    
+ 
 }
 
-function cambioImagen(animacionImg, monedaJugador,monedaOrdenador){
-    if(animacionImg.src === monedaJugador){
-        animacionImg.src = monedaOrdenador;
-    }else{
-        animacionImg.src = caraMonedaJugador;
-    }
+function pararAnimacion(idAnimacion,animacionImg, monedaJugador){
+    clearInterval(idAnimacion);
+    darValorMoneda(animacionImg);
+    actualizarPuntuacion(animacionImg, monedaJugador);
 }
+
+
+function animacionMoneda(animacionImg, monedaJugador, monedaOrdenador){
+    partida.iteracionesAnimacion%2 === 0 ? animacionImg.src = monedaOrdenador : animacionImg.src = monedaJugador; 
+    partida.iteracionesAnimacion++;
+}
+
+function actualizarPuntuacion(animacionImg,  monedaJugador){
+    //animacionImg.src === monedaJugador ? partida.victoriasJugador++ : partida.victoriasOrdenador++;
+    let puntosJugador =  document.querySelector("#puntosJugador");
+    let puntosOrdenador =  document.querySelector("#puntosOrdenador");
+    puntosJugador.innerHTML = partida.victoriasJugador;
+    puntosOrdenador.innerHTML = partida.victoriasOrdenador;
+}
+
+
+
 
 
 function darValorMoneda(contenedorImagen){
     let numeroAleatorio =  Math.random();
-    numeroAleatorio > 0.5 ? contenedorImagen.src = `imagenes/${partida.monedaJugador}_${partida.caraMonedaJugador}.png` : contenedorImagen.src = `imagenes/${partida.monedaOrdenador}_${partida.caraMonedaOrdenador}.png`;
+    if(numeroAleatorio > 0.5){
+        contenedorImagen.src = `imagenes/${partida.monedaJugador}_${partida.caraMonedaJugador}.png`;
+        partida.victoriasJugador++ ;
+    }else{
+        contenedorImagen.src = `imagenes/${partida.monedaOrdenador}_${partida.caraMonedaOrdenador}.png`;
+        partida.victoriasOrdenador++;
+    }
+    
 }

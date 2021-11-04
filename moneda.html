@@ -8,6 +8,7 @@
     <meta name="keywords" content="javaScript, ut3">
     <link rel="stylesheet" href="estilos.css">
     <script src="scripts/moneda.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Inicio</title>
 </head>
 <body>
@@ -21,39 +22,45 @@
         </nav>
         <main>
             <section class="monedas">
-                <img src="imagenes/cara.png" alt="tipomoneda" class="tipo-moneda" data-tipomoneda="moneda1">
-                <img src="imagenes/cara.png" alt="tipomoneda" class="tipo-moneda" data-tipomoneda="moneda2">
-                <img src="imagenes/cara.png" alt="tipomoneda" class="tipo-moneda" data-tipomoneda="moneda3">
+                <p>Selecciona un tipo de moneda</p>
+                <img src="imagenes/cara.png" alt="tipomoneda" class="tipo-moneda" data-tipomoneda="moneda1"  class="moneda">
+                <img src="imagenes/cara.png" alt="tipomoneda" class="tipo-moneda" data-tipomoneda="moneda2"  class="moneda">
+                <img src="imagenes/cara.png" alt="tipomoneda" class="tipo-moneda" data-tipomoneda="moneda3"  class="moneda">
 
             </section>
             <section class="partida">
                 <article class="jugador">
-                    <figure>
-                        <img src="./imagenes/user.png" alt="Imagen jugador">
-                    </figure>
-                    <p>Usuario</p>
+                    <i class="fas fa-user"></i>
+                    <p>Jugador</p>
                     <figure class="seleccion-cara">
-                        <img src="" alt="Elección cara 1">
-                        <img src="" alt="Elección cara 2">
+                        <img src="" alt="" class="moneda">
+                        <img src="" alt=""  class="moneda">
                     </figure>
                 </article>
                 <article class="juego">
                     <figure>
-                        <img src="" alt="Animacion del lanzamiento de la moneda" id="animacion">
+                        <img src="" alt="" id="animacion">
                     </figure>
                     <p class="ganador"></p>
-                    <button id="jugar">Jugar</button>
+                    
                 </article>
                 <article class="jugador">
+                    <i class="fas fa-laptop-code"></i>
+                    <p>Ordenador</p>
                     <figure>
-                        <img src="./imagenes/user.png" alt="Imagen ordenador" >
-                    </figure>
-                    <p>Usuario</p>
-                    <figure>
-                        <img src="" alt="Elección moneda" id="imagenOrdenador">
+                        <img src="" alt="" id="imagenOrdenador">
                     </figure>
                 </article>
+                <div class="resultado">
+                    <p class="puntuacion">Puntos jugador: <span id="puntosJugador">0</span></p>
+                    <p class="puntuacion">Puntos ordenador: <span id="puntosOrdenador">0</span></p>
+                    
+                </div>
             </section>
+            <div class="botones">
+                <button id="jugar">Jugar</button>
+            <button id="reiniciar">Reiniciar</button>
+            </div>
             
             
         </main>
