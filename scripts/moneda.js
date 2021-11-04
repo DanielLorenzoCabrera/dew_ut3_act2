@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded" , ()=>{
     const tiposMonedas =  document.querySelectorAll(".tipo-moneda");
     tiposMonedas.forEach(moneda => moneda.addEventListener("click",elegirTipoMoneda));
 
+    const botonReinicio =  document.querySelector("#reiniciar");
+    botonReinicio.addEventListener("click", ()=> location.reload());
+
 });
 
 
@@ -35,6 +38,8 @@ function comenzarPartida(){
 
 function elegirTipoMoneda(){
     // Si hay uno seleccionado le quitamos la clase seleccionado
+    partida.monedaJugador = "";
+    partida.caraMonedaJugador = "";
     const seleccionAnterior = document.querySelector('.seleccionada') ? (document.querySelector('.seleccionada')).classList.toggle("seleccionada") : '';
     this.classList.toggle("seleccionada"); // Le ponemos la clase al seleccionado
     partida.monedaJugador = this.dataset.tipomoneda;
@@ -52,6 +57,10 @@ function mostrarCarasMoneda(){
     carasMoneda[1].src = `./../imagenes/${partida.monedaJugador}_cruz.png`;
     carasMoneda[1].dataset.caraMonedaJugador = `cruz`;
     carasMoneda.forEach(moneda => moneda.addEventListener("click", elegirCaraMoneda));
+    let monedaOrdenador =  document.querySelector("#imagenOrdenador");
+    monedaOrdenador.src = "";
+    const seleccionAnterior = document.querySelector('.cara_seleccionada') ? (document.querySelector('.cara_seleccionada')).classList.toggle("cara_seleccionada") : '';
+
 }
 
 function elegirCaraMoneda(){
@@ -83,7 +92,7 @@ function lanzarMoneda(){
 
 function pararAnimacion(idAnimacion,animacionImg, monedaJugador){
     clearInterval(idAnimacion);
-    darValorMoneda(animacionImg);
+     darValorMoneda(animacionImg);
     actualizarPuntuacion(animacionImg, monedaJugador);
 }
 
@@ -94,7 +103,6 @@ function animacionMoneda(animacionImg, monedaJugador, monedaOrdenador){
 }
 
 function actualizarPuntuacion(animacionImg,  monedaJugador){
-    //animacionImg.src === monedaJugador ? partida.victoriasJugador++ : partida.victoriasOrdenador++;
     let puntosJugador =  document.querySelector("#puntosJugador");
     let puntosOrdenador =  document.querySelector("#puntosOrdenador");
     puntosJugador.innerHTML = partida.victoriasJugador;

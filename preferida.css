@@ -1,0 +1,35 @@
+
+
+.wrapper > main{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+}
+
+#contenedorJuego{
+    flex: 3 1 300px;
+    background-color: aquamarine;
+}
+
+#opcionesJuego{
+    flex: 1 1 300px;
+}
+
+.manos{
+    display: flex;
+    flex-flow: row nowrap;
+    max-width: 300px;
+    background-color: red;
+    
+}
+
+.manos img{
+    max-width: 100px;
+    cursor: pointer;
+}
+
+.manos img:hover{
+    transform: scale(.95);
+}
+

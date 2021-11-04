@@ -2,8 +2,8 @@
 
 :root{
     --main_font : 'Barlow Condensed', sans-serif;
-    --main_color : #000;
-    --second_color : #fff;
+    --main_color : #575757;
+    --second_color : rgb(255, 255, 255);
 }
 
 
@@ -11,21 +11,26 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--main_font);
+}
+
+#avatar{
+    margin: 0 auto;
+}
+
+hgroup{
+    text-align: center;
+    font-family: var(--main_font);
 }
 
 .wrapper{
-    max-width: 70%;
+    max-width: 90%;
     display: flex;
     flex-flow: column nowrap;
     margin: 2em auto;
-    outline: .1em solid black;
-    min-height: 80vh;
+    
     align-items: space-around;
     
-}
-
-.wrapper > * {
-    margin: 1em 0;
 }
 
 .wrapper > h1{
@@ -35,16 +40,25 @@
 
 .wrapper > nav{
     align-self: center;
-   
+    display: flex;
     padding: 1em;
+    
     font-size: 1.2em;
+    font-family: var(--main_font);
 }
 
 .wrapper > nav > a{
     text-decoration: none;
+    text-align: center;
     color : var(--main_color);
     margin: 0 .3em;
 }
+
+.wrapper > nav > a:hover{
+    border-bottom: .1em solid var(--main_color);
+}
+
+
 
 main{
     display: flex;
@@ -69,23 +83,24 @@ main > section > article{
 }
 
 
-.partida{
-    justify-self: flex-end;
+
+
+.partida > *{
+    flex:1 1 300px;
     
-    margin: 2em 0;
+   
 }
-
-
 
 
 .juego{
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-around;
+    flex: 1 1 300px;
+    justify-content: center;
+    width: 100%;
+    
 }
 
 .monedas{
-    background-color: violet;
     align-items: center;
     padding:1em 0;
 }
@@ -113,7 +128,6 @@ main > section > article{
 
 }
 
-
 .tipo-moneda:hover{
     transform: scale(1.1);
 }
@@ -121,7 +135,22 @@ main > section > article{
 .tipo-moneda:active, .seleccionada, .cara_seleccionada{
     transform: scale(1);
     border-radius: 50%;
+    outline: 2px solid var(--main_color);
+    padding: .3em;
     
+}
+
+.jugador{
+    width: 100%;
+    background-color: var(--main_color);
+    display: flex;
+    flex: 1 1 300px;
+    color: var(--second_color);
+    font-size: 1.2em;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-self: space-around;
+    padding: .5em;
 }
 
 .jugador img{
@@ -129,16 +158,19 @@ main > section > article{
 }
 
 .jugador i{
-    font-size: 4em;
-    color: violet;
+    font-size: 3em;
+    color: var(--second_color);
 }
 
 .jugador figure{
     margin: 1em 0;
+    width: 100%;
+    text-align: center;
 }
 
 #animacion{
     max-width: 100px;
+    margin: 1em;
 }
 
 .resultado{
@@ -146,20 +178,36 @@ main > section > article{
     margin: .5em 0;
     justify-content: center;
     display: flex;
+    flex-flow: row wrap;
+    
+}
+
+.resultado p{
+    margin: 1em 0;
 }
 
 .puntuacion{
-    background-color: red;
+    background-color: var(--main_color);
+    color: var(--second_color);
     margin: 0 1em;
     padding: 1em;
+    flex: 1 1 300px;
+    text-align: center;
 }
 
 .botones{
     display: flex;
-    margin: .5em auto;justify-content: center;}
+    margin: .5em auto;
+    justify-content: center;
+    flex-flow: row wrap;
+    flex: 1 1 100%;
+}
 
 #jugar, #reiniciar{
-    max-width: 100px;
+    flex: 1 1 ;
+
     margin: 0 .5em;
     padding: .5em 1em;
+
+   
 }
