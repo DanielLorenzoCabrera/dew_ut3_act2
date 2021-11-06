@@ -1,0 +1,86 @@
+*{
+    font-family: 'Barlow Condensed', sans-serif;
+
+}
+
+.wrapper > main{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+}
+
+#contenedorJuego{
+    flex: 3 1 300px;
+   
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+}
+
+
+#contenedorJuego section{
+    text-align: center;
+}
+
+#contenedorJuego > section > img{
+    max-width: 150px;
+}
+
+#opcionesJuego{
+    flex: 1 1 300px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+#opcionesJuego > *{
+    margin: .5em 0;
+}
+
+.manos{
+    display: flex;
+    flex-flow: row nowrap;
+    max-width: 300px;
+   
+    
+}
+
+.manos img{
+    max-width: 100px;
+    cursor: pointer;
+}
+
+.manos img:hover{
+    transform: scale(.95);
+}
+
+
+.versus{
+    font-size: 3em;
+}
+
+.resultado {
+    font-size: 1.5em;
+}
+
+#comenzarJuego{
+    border:0;
+    padding: 1em 2em;
+    cursor: pointer;
+    background-color: #575757;
+    color: #fff;
+}
+
+#comenzarJuego:hover{
+    border:0;
+    padding: 1em 2em;
+    cursor: pointer;
+    background-color: #fff;
+    color: #575757;
+    outline: .1em solid #575757;
+}
+
+

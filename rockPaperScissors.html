@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Daniel Lorenzo Cabrera">
     <meta name="keywords" content="javaScript, ut3">
-    <title>Inicio</title>
-    <link rel="stylesheet" href="estilos.css">
-    <link rel="stylesheet" href="preferida.css" title="preferida">
+    <title>Piedra Papel Tijeras</title>
+    <link rel="stylesheet" href="estilos/estilos.css">
+    <link rel="stylesheet" href="estilos/piedraPapelTijeras.css" title="preferida">
     <script src="scripts/piedraPapelTijeras.js"></script>
 </head>
 <body>
@@ -22,16 +22,24 @@
         </nav>
         <main>
             <article id="contenedorJuego">
-                <img src="" alt="">
-                <p class="resultado"></p>
-                <img src="" alt="">
+                <section>
+                    <img src="" alt="" id="manoJugador">
+                    <p id="victoriasJugador"></p>
+                </section>
+                <p class="versus"></p>
+                <section>
+                    <img src="" alt="" id="manoOrdenador">
+                    <p id="victoriasOrdenador"></p>
+                </section>
+                
             </article>
+            <p class="resultado"></p>
             <article id="opcionesJuego">
                 <p>Selecciona tu mano</p>
                 <section class="manos">
-                    <img src="imagenes/rock.svg" alt="" data-mano="piedra">
-                    <img src="imagenes/paper.svg" alt="" data-mano="papel">
-                    <img src="imagenes/scissors.svg" alt="" data-mano="tijeras">
+                    <img src="imagenes/piedra.svg" alt="" data-mano="piedra">
+                    <img src="imagenes/papel.svg" alt="" data-mano="papel">
+                    <img src="imagenes/tijeras.svg" alt="" data-mano="tijeras">
                 </section>
                 <button id="comenzarJuego">Jugar</button>
             </article>

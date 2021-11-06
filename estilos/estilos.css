@@ -135,7 +135,7 @@ main > section > article{
 .tipo-moneda:active, .seleccionada, .cara_seleccionada{
     transform: scale(1);
     border-radius: 50%;
-    outline: 2px solid var(--main_color);
+    outline: 2px solid var(--second_color);
     padding: .3em;
     
 }
