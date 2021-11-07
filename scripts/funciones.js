@@ -6,12 +6,20 @@ function recuperarBotones(){
     let botonFactorial=  document.querySelector("#botonFactorial");
     botonFactorial.addEventListener("click", comprobarInput);
 
+    let botonFactorialRecursivo =  document.querySelector("#botonFactorialRecursivo");
+    botonFactorialRecursivo.addEventListener("click", comprobarInput);
+
     let intercambioValor = document.getElementById("intercambioValor");
     intercambioValor.addEventListener("click", intercambiarPorValor);
 
     let intercambioReferencia= document.getElementById("intercambioReferencia");
     intercambioReferencia.addEventListener("click", intercambiarPorReferencia);
 
+    let botonSumarArgumentos =  document.getElementById("sumarArgumentos");
+    botonSumarArgumentos.addEventListener("click", sumarArgumentos);
+
+    let botonesInformacion = document.querySelectorAll(".informacion");
+    botonesInformacion.forEach(boton => {boton.addEventListener("click", mostrarInformacion)})
 }
 
 
@@ -23,21 +31,21 @@ function comprobarInput(){
     if(isNaN(valor)|| valor < 0 || !Number.isInteger(valor)){
         alert("Por favor introduce un número entero positivo");
     }else{
-        calcularFactorial(valor)
+        let resultado = this.id === "botonFactorial" ? calcularFactorial(valor) : calcularFactorialRecursivo(valor);
+        let resultadoFactorial =  document.getElementById("resultado-factorial");
+        resultadoFactorial.value = resultado;
     }
 }
 
 
 function calcularFactorial(valor){
-   let resultadoFactorial =  document.getElementById("resultado-factorial");
-   if(valor === 0) {
-       resultadoFactorial.value = 1; return;
-   }
+   
+   if(valor === 0) return 1;
    let acumulador = 1;
    for(let i = 1; i <= valor; i++){
         acumulador *= i;
    }
-   resultadoFactorial.value = acumulador;
+   return acumulador;
 }
 
 
@@ -66,4 +74,51 @@ function intercambiarPorReferencia(){
     parametroUno.value = valorParametroDos;
     parametroDos.value = valorParametroUno;
 
+}
+
+
+
+function sumarArgumentos(){
+    let variables =  ((document.getElementById("variables")).value).split(",");
+    let resultadoSuma =  document.getElementById("resultadoSuma");
+    let valoresCorrectos = true;
+    variables.forEach(posicion => { 
+        parseFloat(posicion);
+        if(isNaN(posicion)){ 
+            valoresCorrectos = false;
+        }
+    });
+    
+    if(!valoresCorrectos){
+        alert("Debes introducir valores numéricos separados por comas");
+        return;
+    }
+    let total = 0;
+    variables.forEach(posicion =>{
+        total += parseFloat(posicion)
+    })
+
+    resultadoSuma.value = total;
+
+}
+
+function mostrarInformacion(){
+    let datos = (this.dataset.datos).split(",");
+    let displayInformacion =  document.getElementById("informacion");
+    let resultado = "";
+    datos.forEach(dato =>{
+        resultado = resultado.concat(" ",dato);
+    })
+    console.log(resultado)
+    resultado = resultado.concat(" ", "Las Palmas de G.C 100");
+    displayInformacion.value =  resultado;
+
+
+
+}
+
+
+function calcularFactorialRecursivo(valor){
+     return valor < 2 ? 1 : valor * calcularFactorialRecursivo(valor - 1) ;
+     
 }

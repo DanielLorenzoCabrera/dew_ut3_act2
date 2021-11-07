@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Daniel Lorenzo Cabrera">
     <meta name="keywords" content="javaScript, ut3">
-    <title>Piedra Papel Tijeras</title>
+    <title>Funciones</title>
     <link rel="stylesheet" href="estilos/estilos.css">
     <link rel="stylesheet" href="estilos/funciones.css" title="preferida">
     <script src="scripts/funciones.js"></script>
@@ -26,13 +26,31 @@
                 <input type="number" id="input-factorial">
                 <input type="text"  id="resultado-factorial" disabled>
                 <input type="button" value="Calcular" id="botonFactorial">
+                <input type="button" value="Calcular recursivamente" id="botonFactorialRecursivo">
             </article>
-            <article id="intercambiar_valores">
+            <article id="intercambiarValores">
                 <h3>Paso de parámetros por valor y por referencia</h3>
                 <input type="number" id="parametro1" placeholder="numero 1">
                 <input type="number"  id="parametro2" placeholder="numero 2">
                 <input type="button" value="Intercambiar por valor" id="intercambioValor" >
                 <input type="button" value="Intercambiar por referencia" id="intercambioReferencia">
+            </article>
+            <article id="argumentosVariables">
+                <h3>Número de argumentos variables</h3>
+                <p>Introduzca los números que desea sumar separados por comas</p>
+                <input type="text" id="variables" placeholder="Números">
+                <input type="number"  id="resultadoSuma" placeholder="resultado" disabled>
+                <input type="button" value="Sumar" id="sumarArgumentos" >
+                
+            </article>
+            <article id="parametrosPorDefecto">
+                <h3>Parámetros por defecto</h3>
+                <p>Pulse la opción deseada y observe los resultados</p>
+                <input type="text" id="informacion" placeholder="Informacion" disabled>
+                <input type="button"  class="informacion" value="Informacion('Pepe', 'Madrid','23.45')" data-datos="Pepe,Madrid,23.45">
+                <input type="button"  class="informacion" placeholder="resultado" value="Informacion('Pepe', 'Madrid')" data-datos="Pepe,Madrid">
+                <input type="button"  class="informacion" placeholder="resultado" value="Informacion('Pepe')" data-datos="Pepe">
+                
             </article>
             
         </main>

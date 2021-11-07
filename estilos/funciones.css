@@ -1,0 +1,35 @@
+#informacion{
+    width: 300px;
+}
+
+main{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+main > article{
+    display: flex;
+    flex-flow: column nowrap;
+    flex:1 1 300px;
+    margin: .5em;
+    
+}
+
+main >article > *{
+    margin: .5em 0;
+}
+
+input[type="button"]{
+    background-color: #fff;
+    outline: .1em solid #575757;
+    border: 0;
+    padding: .3em;
+    cursor: pointer;
+    color: #575757;
+}
+
+input[type="button"]:hover{
+    background-color: #575757;
+    outline: .1em solid #fff;
+    color: #fff;
+}
